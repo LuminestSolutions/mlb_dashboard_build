@@ -248,6 +248,12 @@ def connect():
 
 def execute_schema(conn) -> None:
     schema_path = SUPABASE_SCHEMA_PATH if isinstance(conn, PostgresConnection) else SCHEMA_PATH
+    if not schema_path.exists() and isinstance(conn, PostgresConnection):
+        st.warning(
+            "Supabase schema file is not bundled with this deployment. "
+            "If you already ran supabase_schema.sql in Supabase, the app can continue."
+        )
+        return
     conn.executescript(schema_path.read_text())
     conn.commit()
 
@@ -588,13 +594,26 @@ def settle_recommendation(row: pd.Series) -> str:
 
 def style_recommendation_result(row: pd.Series) -> list[str]:
     result = row.get("recommendation_result", "")
+    recommendation = row.get("recommendation", "")
     styles = [""] * len(row)
     if result in {"BET WON", "PASS WORKED"}:
         color = "background-color: rgba(22, 163, 74, 0.9); color: white; font-weight: 700"
     elif result in {"BET LOST", "PASS MISSED"}:
         color = "background-color: rgba(220, 38, 38, 0.9); color: white; font-weight: 700"
     elif result == "Pending":
-        color = "background-color: rgba(234, 179, 8, 0.85); color: #111827; font-weight: 700"
+        result_color = "background-color: rgba(234, 179, 8, 0.85); color: #111827; font-weight: 700"
+        if recommendation == "BET":
+            recommendation_color = "background-color: rgba(22, 163, 74, 0.9); color: white; font-weight: 700"
+        elif recommendation == "PASS":
+            recommendation_color = "background-color: rgba(220, 38, 38, 0.9); color: white; font-weight: 700"
+        else:
+            recommendation_color = result_color
+        for index, column in enumerate(row.index):
+            if column == "recommendation":
+                styles[index] = recommendation_color
+            elif column == "recommendation_result":
+                styles[index] = result_color
+        return styles
     else:
         color = "background-color: rgba(107, 114, 128, 0.75); color: white; font-weight: 700"
 
