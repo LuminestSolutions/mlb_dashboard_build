@@ -1154,7 +1154,7 @@ def load_slate() -> pd.DataFrame:
             COALESCE(g.home_bullpen_pitches_3d, 0) AS home_bullpen_pitches_3d,
             COALESCE(g.away_bullpen_status, 'Unknown') AS away_bullpen_status,
             COALESCE(g.home_bullpen_status, 'Unknown') AS home_bullpen_status,
-            COALESCE(g.pitcher_change_detected, 0) AS pitcher_change_detected,
+            COALESCE(g.pitcher_change_detected, FALSE) AS pitcher_change_detected,
             COALESCE(g.pitcher_change_details, '') AS pitcher_change_details,
             COALESCE(g.weather_risk_level, 'Unknown') AS weather_risk_level,
             g.context_updated_at,
