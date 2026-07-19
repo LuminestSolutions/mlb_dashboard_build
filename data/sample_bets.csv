@@ -1,0 +1,5 @@
+date,bet,market,odds,stake_units,result,profit_loss_units,closing_line,clv_cents
+2026-06-10,LAD F5 ML,F5 Moneyline,-125,1.0,W,0.80,-140,15
+2026-06-11,NYY ML,Moneyline,135,1.0,L,-1.00,122,-13
+2026-06-12,SEA Team Total Over,Team Total,-110,1.0,W,0.91,-120,10
+2026-06-13,ATL ML,Moneyline,-118,1.0,P,0.00,-118,0

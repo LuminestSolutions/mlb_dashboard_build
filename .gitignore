@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+.env
+.streamlit/secrets.toml
+data/mlb_edge.db
+
+data/pybaseball_cache/
+data/matplotlib_config/

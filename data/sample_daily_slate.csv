@@ -1,0 +1,6 @@
+rank,game_date,matchup,away_team,home_team,recommended_side,market,best_market,fair_line,market_line,edge_pct,confidence,model_score,recommendation,reason
+1,2026-06-14,LAD @ ATL,LAD,ATL,LAD,F5 Moneyline,F5 Moneyline,-158,-135,5.2,8.4,6,BET,Pitching edge plus offense split advantage
+2,2026-06-14,NYY @ BOS,NYY,BOS,NYY,Moneyline,Moneyline,126,141,4.4,7.9,5,BET,Underdog price above fair value
+3,2026-06-14,SEA @ TEX,SEA,TEX,SEA,Moneyline,Team Total,-118,-115,1.2,5.8,2,PASS,Edge below conservative threshold
+4,2026-06-14,CHC @ MIL,CHC,MIL,MIL,Moneyline,Full Game ML,-145,-152,-1.6,6.1,-3,PASS,Market already priced beyond fair line
+5,2026-06-14,ARI @ SD,ARI,SD,SD,Moneyline,F5 Moneyline,-132,-116,3.6,6.8,4,PASS,Confidence below 7.0
